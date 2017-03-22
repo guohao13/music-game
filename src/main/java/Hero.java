@@ -60,7 +60,7 @@ public class Hero {
     return instances.get(heroId - 1);
   }
 
-  public boolean getDefeatStatus() {
+  public boolean getHeroDefeatStatus() {
     return mHeroDefeated;
   }
 

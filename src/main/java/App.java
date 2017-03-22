@@ -10,7 +10,7 @@ public class App {
     String layout = "templates/layout.vtl";
 
 
-    // 
+    //
     // Hero newHero = new Hero("John");
 
 
