@@ -60,6 +60,12 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    // get("/arena", (request, response) -> {
+    //   Map<String, Object> model = new HashMap<String, Object>();
+    //   Game game = (Game) model.get("game");
+    //   System.out.println(game.getBandOne());
+    //   return new ModelAndView(model, layout);
+    // }, new VelocityTemplateEngine());
 
     post("/bands", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -102,22 +108,16 @@ public class App {
       }
       if (bands.size() == 2) {
         Game newGame = new Game (bands.get(0),bands.get(1), heroes.get(0), heroes.get(1));
+
+        model.put("band1", newGame.getBandOne());
+        model.put("band2", newGame.getBandTwo());
+        model.put("hero1", newGame.getBand1Fighter());
+        model.put("hero2", newGame.getBand2Fighter());
+        model.put("game", newGame);
         model.put("template", "templates/arena.vtl");
       }
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
-
-
-
-
-
-    // post("/bands/:id", (request, response) -> {
-    // //   Map<String, Object> model = new HashMap<String, Object>();
-    // //   Band band = Band.findBand(Integer.parseInt(request.params(":id")));
-    // //   model.put("band", band);
-    // //   model.put("template", "templates/band.vtl");
-    // //   return new ModelAndView(model, layout);
-    // // }, new VelocityTemplateEngine());
 
   }
 }

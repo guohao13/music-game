@@ -7,13 +7,15 @@ public class Game {
   private Hero mActiveFighter;
   private Hero mBand1Fighter;
   private Hero mBand2Fighter;
+  private int mGameId;
 
  public Game (Band band1, Band band2, Hero band1Hero, Hero band2Hero) {
    mBand1 = band1;
    mBand2 = band2;
-    mBand1Fighter = band1Hero;
-    mBand2Fighter = band2Hero;
+   mBand1Fighter = band1Hero;
+   mBand2Fighter = band2Hero;
    mActiveFighter = mBand1Fighter;
+   mGameId = 1;
  }
 
  public Hero getActiveFighter(){
@@ -35,5 +37,13 @@ public class Game {
  public Hero getBand2Fighter(){
    return mBand2Fighter;
  }
+
+ public int getGame() {
+   return mGameId;
+ }
+
+ // public void fight(){
+ //   mBand1Fighter.getHitPoints() -= 10;
+ // }
 
 }

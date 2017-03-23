@@ -1,0 +1,14 @@
+<!--arena.vtl-->
+<div class="jumbotron">
+<h1>Battle Arena</h1>
+<h2>$band1.getBandName() --- $hero1.getHeroName() --- HitPoints: $hero1.getHitPoints()</h2>
+<h2>vs.</h2>
+<h2>$band2.getBandName() --- $hero2.getHeroName() --- HitPoints: $hero2.getHitPoints()</h2>
+
+<form action="/arena" >
+  <input id="game" name="game" type="hidden" value="$game.getGameId()">
+  <button type="submit" class="btn btn-default"> Fight A Round! </button>
+</form>
+</div>
+
+<!--arena.vtl-->
