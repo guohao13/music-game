@@ -56,7 +56,7 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    post("/bands:id", (request, response) -> {
+    post("/bands/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Band band = Band.findBand(Integer.parseInt(request.queryParams("bandId")));
       String leadSinger = request.queryParams("leadSinger");

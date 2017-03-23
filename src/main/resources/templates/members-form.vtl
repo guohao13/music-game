@@ -4,7 +4,7 @@
 <p>Add members to this band.</p>
 
 <div class="form-group">
-<form action="/bands:id" method="post">
+<form action="/bands/$band.getBandId()" method="post">
   <input id="bandId" name="bandId" type="hidden" value="$band.getBandId()">
   <div class="form-group">
     <label for="leadSinger">Lead Singer & Guitarist</label>
