@@ -2,7 +2,18 @@
 <div class="jumbotron">
 <h1>$band.getBandName() Members</h1>
 
+<a href="/bands/$band.getBandId()/members/new"><h1>Add members</h1></a>
 
+
+<h1>$band.getBandName() members:</h1>
+<ul>
+  #foreach($member in $band.getBandMembers())
+   <li>$member.getHeroName()</li>
+   <li>$member.getHitPoints()</li>
+   <li>$member.getAttackPower()</li>
+   <li>$member.getChanceToHit()</li>
+  #end
+</ul>
 
 </div>
 
