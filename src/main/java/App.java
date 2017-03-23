@@ -15,6 +15,14 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
+    get("/bands", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      model.put("bands", Band.getBandInstances());
+      model.put("template", "templates/bands.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
+
+
     get("/bands-new", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       model.put("template", "templates/bands-new.vtl");
