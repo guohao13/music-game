@@ -40,6 +40,10 @@ public class Band {
     bandInstances.clear();
   }
 
+  public static Band findBand(int bandId) {
+    return bandInstances.get(bandId - 1);
+  }
+
   public void addHero (Hero hero) {
     mBandMembers.add(hero);
   }
