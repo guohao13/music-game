@@ -14,10 +14,6 @@ public class Band {
     bandInstances.add(this);
     mBandId = bandInstances.size();
     mBandMembers = new ArrayList<Hero>();
-    mBandMembers.add(new Hero (bandName +"-- Hero 1"));
-    newHero2 = new Hero (bandName +"-- Hero 2");
-    mBandMembers.add(newHero);
-    mBandMembers.add(newHero2);
   }
 
   public String getBandName() {
@@ -42,6 +38,10 @@ public class Band {
 
   public static void clearBand() {
     bandInstances.clear();
+  }
+
+  public void addHero (Hero hero) {
+    mBandMembers.add(hero);
   }
 
 }

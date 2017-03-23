@@ -35,7 +35,7 @@ public class BandTest {
   }
 
   @Test
-  public void bandSize_0() {
+  public void bandSize_2() {
     assertEquals(0, newBand.getBandMembers().size());
   }
 }
