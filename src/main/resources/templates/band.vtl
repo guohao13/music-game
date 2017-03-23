@@ -8,10 +8,10 @@
 <h2>$band.getBandName() members:</h2>
 <ul>
   #foreach($member in $band.getBandMembers())
-   <li>$member.getHeroName()</li>
-   <li>$member.getHitPoints()</li>
-   <li>$member.getAttackPower()</li>
-   <li>$member.getChanceToHit()</li>
+   <li><a href="/bands/$band.getBandId()/members/$member.getHeroId()"><h2>$member.getHeroName()</h2></a></li>
+   <li>Hit points - $member.getHitPoints()</li>
+   <li>Attack power - $member.getAttackPower()</li>
+   <li>Accuracy Percentage - $member.getChanceToHit()</li>
   #end
 </ul>
 

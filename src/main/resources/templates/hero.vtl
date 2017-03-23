@@ -1,0 +1,17 @@
+<div class="jumbotron">
+<h1>$member.getHeroName()</h1>
+<h3>Hit points - $member.getHitPoints()</h3>
+<h3>Attack power - $member.getAttackPower()</h3>
+<h3>Accuracy Percentage - $member.getChanceToHit()</h3>
+
+<form action="/arena" method="post">
+<input id="memberId" name="memberId" type="hidden" value="$member.getHeroId()">
+<input id="bandId" name="bandId" type="hidden" value="$band.getBandId()">
+
+
+<button type="submit"><h2>CHOOSE ME YOU NINNY!</h2></button>
+</form>
+
+<a href="/bands/$band.getBandId()"> Back to Your Band</a>
+
+</div>
