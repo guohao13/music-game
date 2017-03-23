@@ -28,8 +28,7 @@ public class HeroTest {
   public void heroHitPointsCreated_int_True() {
     assertEquals(true, newHero.getHitPoints()>64);
     assertEquals(true, newHero.getAttackPower()>14);
-    assertEquals(101, newHero.getChanceToHit());
-    assertEquals(true, newHero.getDefenseRating()>9);
+    assertEquals(true, newHero.getChanceToHit()>59);
   }
 
   @Test

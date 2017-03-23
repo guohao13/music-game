@@ -7,7 +7,6 @@ public class Hero {
   private int mHitPoints;
   private int mAttackPower;
   private int mChanceToHit;
-  private int mDefenseRating;
   private static List<Hero> instances = new ArrayList<Hero>();
   private int mHeroId;
   private boolean mHeroDefeated;
@@ -17,8 +16,7 @@ public class Hero {
     mHeroName = heroName;
     mHitPoints = randomAttribute.nextInt(36) + 65;
     mAttackPower = randomAttribute.nextInt(16) + 15;
-    mChanceToHit = 101;
-    mDefenseRating = randomAttribute.nextInt(16) + 10;
+    mChanceToHit = randomAttribute.nextInt(26)+60;
     instances.add(this);
     mHeroId = instances.size();
     mHeroDefeated = false;
@@ -38,10 +36,6 @@ public class Hero {
 
   public int getChanceToHit() {
     return mChanceToHit;
-  }
-
-  public int getDefenseRating() {
-    return mDefenseRating;
   }
 
   public static List<Hero> getHeroList() {
