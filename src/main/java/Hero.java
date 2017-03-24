@@ -30,6 +30,10 @@ public class Hero {
     return mHitPoints;
   }
 
+  public void setHitPoints(int points){
+    mHitPoints -= points;
+  }
+
   public int getAttackPower() {
     return mAttackPower;
   }
@@ -37,6 +41,8 @@ public class Hero {
   public int getChanceToHit() {
     return mChanceToHit;
   }
+
+
 
   public static List<Hero> getHeroList() {
     return instances;

@@ -1,5 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
+import java.util.Random;
+
 
 public class Game {
   private Band mBand1;
@@ -15,11 +17,20 @@ public class Game {
    mBand1Fighter = band1Hero;
    mBand2Fighter = band2Hero;
    mActiveFighter = mBand1Fighter;
-   mGameId = 1;
+
  }
 
  public Hero getActiveFighter(){
    return mActiveFighter;
+ }
+
+ public void SwitchActiveFighter(){
+   if (mActiveFighter == mBand1Fighter){
+     mActiveFighter = mBand2Fighter;
+   } else {
+     mActiveFighter = mBand1Fighter;
+   }
+
  }
 
  public Band getBandOne(){
@@ -42,8 +53,16 @@ public class Game {
    return mGameId;
  }
 
- // public void fight(){
- //   mBand1Fighter.getHitPoints() -= 10;
- // }
+ public void ActiveFighterAttacks(){
+   Random randomHit = new Random();
+   if (randomHit.nextInt(101) <= mActiveFighter.getChanceToHit()){
+     if (mActiveFighter == mBand1Fighter) {
+       mBand2Fighter.setHitPoints(mBand1Fighter.getAttackPower());
+     } else {
+       mBand1Fighter.setHitPoints(mBand2Fighter.getAttackPower());
+     }
+   }
+ }
+
 
 }

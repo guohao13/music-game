@@ -16,6 +16,9 @@ public class App {
 
     get("/", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
+      if(Band.getBandInstances() != null){
+        Band.clearBand();
+      }
       model.put("template", "templates/index.vtl");
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
@@ -60,12 +63,18 @@ public class App {
       return new ModelAndView(model, layout);
     }, new VelocityTemplateEngine());
 
-    // get("/arena", (request, response) -> {
-    //   Map<String, Object> model = new HashMap<String, Object>();
-    //   Game game = (Game) model.get("game");
-    //   System.out.println(game.getBandOne());
-    //   return new ModelAndView(model, layout);
-    // }, new VelocityTemplateEngine());
+    get("/arena", (request, response) -> {
+      Map<String, Object> model = new HashMap<String, Object>();
+      Game newGame = request.session().attribute("game");
+      newGame.ActiveFighterAttacks();
+      newGame.SwitchActiveFighter();
+      model.put("band1", newGame.getBandOne());
+      model.put("band2", newGame.getBandTwo());
+      model.put("hero1", newGame.getBand1Fighter());
+      model.put("hero2", newGame.getBand2Fighter());
+      model.put("template", "templates/arena.vtl");
+      return new ModelAndView(model, layout);
+    }, new VelocityTemplateEngine());
 
     post("/bands", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
@@ -108,12 +117,11 @@ public class App {
       }
       if (bands.size() == 2) {
         Game newGame = new Game (bands.get(0),bands.get(1), heroes.get(0), heroes.get(1));
-
+        request.session().attribute("game", newGame);
         model.put("band1", newGame.getBandOne());
         model.put("band2", newGame.getBandTwo());
         model.put("hero1", newGame.getBand1Fighter());
         model.put("hero2", newGame.getBand2Fighter());
-        model.put("game", newGame);
         model.put("template", "templates/arena.vtl");
       }
       return new ModelAndView(model, layout);
